@@ -1,0 +1,33 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "😀 Init project \r ```\r npm init\r ```\r 😀 Download Express: https://www.npmjs.com/package/express\r ```\r npm install express\r ```\r 😂 Install nodemon & inspector: https://www.npmjs.com/package/nodemon\r ```\r npm i nodemon --save-dev\r ```",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon --inspect src/index.js",
+    "watch": "node-sass --watch src/resources/scss/ --output src/public/css/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngovanthuan07/nodejs_blog.git"
+  },
+  "keywords": [
+    "vanthuandev"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ngovanthuan07/nodejs_blog/issues"
+  },
+  "homepage": "https://github.com/ngovanthuan07/nodejs_blog#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-ejs-layouts": "^2.5.1"
+  },
+  "devDependencies": {
+    "node-sass": "^7.0.1",
+    "nodemon": "^2.0.16"
+  }
+}

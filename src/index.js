@@ -14,7 +14,7 @@ db.connect();
 app.use(expressLayout);
 app.use(express.static(path.join(__dirname, "public")))
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "resources/views"));
+app.set("views", path.join(__dirname, 'resource', 'views'));
 
 // Routes init
 route(app)

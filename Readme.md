@@ -14,7 +14,8 @@ npm i nodemon --save-dev
 😁 run project
 ```
 node index.js
-``` nếu có cấu hình trong file package.json:
+``` 
+nếu có cấu hình trong file package.json:
 ```
 npm start
 ```

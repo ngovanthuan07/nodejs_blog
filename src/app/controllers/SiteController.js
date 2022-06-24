@@ -2,20 +2,20 @@ const Course = require('../models/Course');
 class SiteController {
 
     // [GET]  /home
-    index(req, res) {
-        Course.find({}, function (err, courses) {
-            if(!err) {
-                res.json(courses);
-            } else {
-                res.status(400).json({error: 'ERROR!!!'});
-            }
-        })
+    index(req, res, next) {
 
-        // res.render("home", {layout: "layouts/layout"});
+        Course.find({})
+            .then(courses => res.render('home', {title:'HOME TITLE', layout: "layouts/layout", courses}))
+            .catch(error =>  next(error));
+        //  res.render("home", {layout: "layouts/layout"});
     }
      // [GET]  /search
      search(req, res) {
-        res.render("search", {layout: "layouts/layout"});    
+        res.render('search', {layout: "layouts/layout"});    
+    }
+
+    show() {
+
     }
 }
 

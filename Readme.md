@@ -20,7 +20,7 @@ nếu có cấu hình trong file package.json:
 npm start
 ```
 
-😀 Express EJS: https://www.npmjs.com/package/ejs
+😀 Express EJS: https://www.npmjs.com/package/ejs , document: https://expressjs.com/
 ```
 npm install ejs
 ```
@@ -32,4 +32,9 @@ npm install express-ejs-layouts
 😀 sass: https://www.npmjs.com/package/node-sass
 ```
 npm install node-sass
+
+```
+😃 Mongoose: https://github.com/Automattic/mongoose
+```
+npm install mongoose
 ```

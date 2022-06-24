@@ -5,7 +5,10 @@ const port = 3000;
 const expressLayout = require("express-ejs-layouts");
 
 const route = require("./routes");
+const db = require("./config/db");
 
+// Connect to db
+db.connect();
 
 // template engine
 app.use(expressLayout);

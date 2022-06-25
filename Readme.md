@@ -34,7 +34,7 @@ npm install express-ejs-layouts
 npm install node-sass
 
 ```
-😃 Mongoose: https://github.com/Automattic/mongoose
+😃 Mongoose: https://github.com/Automattic/mongoose , https://mongoosejs.com/
 ```
 npm install mongoose
 ```

@@ -2,10 +2,14 @@
    <div class="row">
       <% courses.forEach(function(course){ %>
          <div class="col-sm-6 col-lg-4">
-            <div class="card">
-               <img class="card-img-top" src="<%= course.image %>" alt="<%= course.name %>">
+            <div class="card card-course-item">
+               <a href="/courses/<%= course.slug%>">
+                  <img class="card-img-top" src="<%= course.image %>" alt="<%= course.name %>">
+               </a>
                <div class="card-body">
-                 <h5 class="card-title"><%= course.name %></h5>
+                  <a href="/courses/<%= course.slug%>">
+                     <h5 class="card-title"><%= course.name %></h5>
+                  </a>
                  <p class="card-text"><%= course.description %></p>
                  <a href="#" class="btn btn-primary">Mua khoá học</a>
                </div>

@@ -10,7 +10,7 @@
         <th scope="col">#</th>
         <th scope="col">Tên khoá học</th>
         <th scope="col">Trình độ</th>
-        <th scope="col" colspan="2">Thời gian tạo</th>
+        <th scope="col" colspan="2">Thời gian xoá</th>
       </tr>
     </thead>
     <tbody>
@@ -20,7 +20,7 @@
             <th scope="row"><%= index %></th>
             <td><%= course.name %></td>
             <td><%= course.level %></td>
-            <td><%= course.createdAt %></td>
+            <td><%= course.deletedAt %></td>
             <td>
               <a href="" class="btn btn-link btn-restore" data-id="<%= course._id %>">Khôi phục</a>
               <a

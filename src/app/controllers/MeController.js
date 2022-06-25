@@ -4,8 +4,16 @@ const Course = require('../models/Course');
 class MeController {
      // [GET]  /me/stored/courses
     storedCourses(req, res, next) {
-        Course.find({})
-            .then(courses => {res.render('me/stored-courses', {layout: 'layouts/layout', courses});   })
+        Promise.all([Course.find({}), Course.countDocumentsDeleted()])
+            .then(([courses, deletedCount]) => {
+                res.render('me/stored-courses', {
+                        layout: 'layouts/layout', 
+                        courses,
+                        deletedCount,
+                    }
+                );   
+            }) 
+            .catch(next);
     }
 
      // [GET]  /me/trash/courses

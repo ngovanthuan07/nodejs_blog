@@ -38,3 +38,8 @@ npm install node-sass
 ```
 npm install mongoose
 ```
+
+🤣 mongoose-slug-generator: https://www.npmjs.com/package/mongoose-slug-generator
+```
+npm i mongoose-slug-generator
+```

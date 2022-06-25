@@ -43,3 +43,7 @@ npm install mongoose
 ```
 npm i mongoose-slug-generator
 ```
+😮 method-override: http://expressjs.com/en/resources/middleware/method-override.html
+```
+npm install method-override
+```

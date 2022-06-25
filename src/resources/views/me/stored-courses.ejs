@@ -1,0 +1,28 @@
+<div class="mt-4">
+    <h3>Khoá học của tôi</h3>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Tên khoá học</th>
+            <th scope="col">Trình độ</th>
+            <th scope="col" colspan="2">Thời gian tạo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% courses.forEach((course, index) => { %>
+            <tr>
+              <th scope="row"><%= index %></th>
+              <td><%= course.name %></td>
+              <td><%= course.level %></td>
+              <td><%= course.createdAt %></td>
+              <td>
+                <a href="/courses/<%= course._id %>/edit" class="btn btn-link">Sửa</a>
+                <a href="" class="btn btn-link">Xoá</a>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+</div>

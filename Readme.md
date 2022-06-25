@@ -47,3 +47,7 @@ npm i mongoose-slug-generator
 ```
 npm install method-override
 ```
+🤔 Mongoose Delete Plugin: https://www.npmjs.com/package/mongoose-delete
+```
+npm install mongoose-delete
+```

@@ -7,7 +7,7 @@ const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const util = require('./app/util/Util');
 
-const SortMiddleware = require('./app/middlewares/SortMiddleware');
+const sortMiddleware = require('./app/middlewares/sortMiddleware');
 
 const route = require("./routes");
 const db = require("./config/db");
@@ -33,7 +33,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Custom middlewares
-app.use(SortMiddleware)
+app.use(sortMiddleware)
 
 // Routes init
 route(app);

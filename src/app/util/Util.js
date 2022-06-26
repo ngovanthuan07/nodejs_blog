@@ -1,3 +1,4 @@
+const xss = require("xss");
 module.exports = {
     sum: (a, b) => a + b,
     sortable: (field, sort) => {
@@ -16,11 +17,13 @@ module.exports = {
             desc: 'asc'
         }
 
+        sort.type
+
         const icon = icons[sortType];
         const type = types[sortType];
-
+        let href = xss(`?_sort&column=${field}&type=${type}`);
         return `
-            <a href="?_sort&column=${field}&type=${type}">
+            <a href="${href}">
                 <span class="${icon}"></span>
             </a>
         `;

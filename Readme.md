@@ -74,3 +74,9 @@ npm install mongoose-delete
 😅 icon: https://useiconic.com/open
 
 😀 muốn viết trực tiếp html trong ejs html: https://stackoverflow.com/questions/8124583/print-raw-html-strings-on-ejs
+
+😆 xss: https://www.npmjs.com/package/xss
+
+```
+npm install xss
+```

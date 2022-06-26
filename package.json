@@ -29,7 +29,8 @@
     "method-override": "^3.0.0",
     "mongoose": "^6.4.0",
     "mongoose-delete": "^0.5.4",
-    "mongoose-slug-generator": "^1.0.4"
+    "mongoose-slug-generator": "^1.0.4",
+    "xss": "^1.0.13"
   },
   "devDependencies": {
     "node-sass": "^7.0.1",

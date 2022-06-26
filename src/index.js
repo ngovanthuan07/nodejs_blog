@@ -4,13 +4,18 @@ const app = express();
 const port = 3000;
 const expressLayout = require("express-ejs-layouts");
 const methodOverride = require('method-override');
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
+const util = require('./app/util/Util');
+
+const SortMiddleware = require('./app/middlewares/SortMiddleware');
 
 const route = require("./routes");
 const db = require("./config/db");
 
 // Connect to db
 db.connect();
+app.locals.helpers = util;
+
 app.use(methodOverride('_method'))
 // template engine
 app.use(expressLayout);
@@ -21,9 +26,14 @@ app.set("views", path.join(__dirname, 'resources', 'views'));
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
+
+
+
 // parse application/json
 app.use(bodyParser.json());
 
+// Custom middlewares
+app.use(SortMiddleware)
 
 // Routes init
 route(app);

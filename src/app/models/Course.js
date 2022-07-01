@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const slug = require('mongoose-slug-generator');
 const Schema = mongoose.Schema;
 const mongoose_delete = require('mongoose-delete');
+const base = require('./Base');
 
 
 
@@ -29,6 +30,15 @@ CourseSchema.query.sortable = function (req) {
   return this;
 }
 
+CourseSchema.query.sortable2 = function (orderby) {
+  if(Object.keys(orderby).length) {
+    return this.sort({
+          [orderby['field']]: orderby['sort'] ? orderby['sort'] : 'desc',
+    })
+  }
+  return this;
+}
+
 
 // Add plugins
 mongoose.plugin(slug);
@@ -38,3 +48,38 @@ CourseSchema.plugin(mongoose_delete, {
 });
 
 module.exports = mongoose.model('Course', CourseSchema);
+
+module.exports.title = 'Khoá học';
+
+module.exports.listingConfigs = function() {
+  let configs = [
+    {
+        'field': '_id',
+        'name': 'ID',
+        'type': 'text',
+        'filter': 'equal',
+        'sort': true,
+    },
+    {
+        'field': 'name',
+        'name': 'Tên sản khoá học',
+        'type': 'text',
+        'filter': 'like',
+        'sort': true,
+    },
+    {
+        'field': 'description',
+        'name': 'Mô tả',
+        'type': 'text'         
+    },
+    {
+        'field': 'image',
+        'name': 'Ảnh',
+        'type': 'image'         
+    },
+
+  ];
+
+  return configs.concat(base.configs);
+}
+

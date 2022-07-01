@@ -1,0 +1,107 @@
+
+<div class="">
+    <div class="page-title">
+        <h3><%= title %></h3>
+
+
+        <form class="filter-form" action="/listing/<%= action %>" method="POST">
+            <fieldset class="filter">
+                <legend class="">Tìm kiếm</legend>
+                <% configs.forEach(config => {
+                    if (config['filter']) { 
+                        switch (config['filter']) { 
+                            case 'equal': %>
+                                <div class="filter-item">
+                                    <label><%= config['name'] %></label>
+                                    <input type="text" name="<%= config['field'] %>" value="<%= config['filter_value'] %>">
+                                </div>
+                                <% break;
+                            case 'like': %>
+                                <div class="filter-item">
+                                    <label><%= config['name'] %></label>
+                                    <input type="text" name="<%= config['field'] %>" value="<%= config['filter_value'] %>">
+                                </div>
+                                <% break;
+                            case 'between' : %>
+                                <div class="filter-item">
+                                    <label><%= config['name'] %> từ:</label>
+                                    <input type="text" name="<%= config['field']%>" value="<%= config['filter_from_value'] %>">
+                                </div>
+                                
+                                <div class="filter-item">
+                                    <label>Đến:</label>
+                                    <input type="text" name="<%= config['field']%>" value="<%= config['filter_to_value'] %>">
+                                </div>
+                                <% break;
+                        } 
+                    }
+                }); %>
+
+
+                <button type="submit" class="btn btn-primary" style="margin-left: 20px">Tìm</button>
+            </fieldset>
+
+
+        </form>
+
+    </div>
+</div>
+
+<table class="table mt-4">
+    <thead>
+      <tr>
+        <% configs.forEach(config => { %>
+            <% if(config['sort']){ %>
+                <% if(orderBy['field'] === config['field']){ %>
+                    <% if (orderBy['sort'] === 'desc') { %>
+                        <th scope="col"><%= config.name %>
+                            <a href="/listing/<%= action %>?sort=<%= config['field'] %>_asc"> <span class="oi oi-sort-descending text-danger"> </span></a>
+                        </th>
+                    <% } else { %>
+                        <th scope="col"><%= config.name %>
+                            <a href="/listing/<%= action %>?sort=<%= config['field'] %>_desc"> <span class="oi oi-sort-ascending text-success"> </span></a>
+                        </th>
+                    <% }%>
+                <% } else{ %>  
+                        <th scope="col"><%= config.name %>
+                            <a href="/listing/<%= action %>?sort=<%= config['field'] %>_desc"> <span class="oi oi-elevator"> </span></a>
+                        </th>
+                <% } %>
+
+            <% } else{ %>  
+                <th scope="col"><%= config.name %></th>
+            <% } %>
+        <% }); %>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <% records.forEach(record => { %>
+            <tr>
+                <% configs.forEach(config => { 
+                    switch (config['type']) {
+                        case 'text': %>
+                            <td><%= record[config['field']] %></td>
+                            <% break; 
+                        case 'image': %>
+                            <td><img width="75" onerror="/img/no-image.jpg" src="<%= record[config['field']] %>" alt=""></td>
+                            <% break; 
+                        case 'number': %>
+                            <td><%= (1 * record[config['field']]) %></td>
+                            <% break;
+                        case 'copy': %>
+                            <td><a href="" class="btn btn-link">Copy</a></td>
+                            <% break;
+                        case 'edit': %>
+                            <td><a href="" class="btn btn-link">Sửa</a></td>
+                            <% break;      
+                        case 'delete': %>
+                            <td><a href="" class="btn btn-link">Xoá</a></td>
+                            <% break;                       
+                    }; %>
+                <% }); %>
+            </tr>
+        <% }); %>
+      
+    </tbody>
+  </table>

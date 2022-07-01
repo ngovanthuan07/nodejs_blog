@@ -80,3 +80,9 @@ npm install mongoose-delete
 ```
 npm install xss
 ```
+
+✅⛔️ cookie-parser: https://www.npmjs.com/package/cookie-parser
+
+```
+npm install cookie-parser
+```
